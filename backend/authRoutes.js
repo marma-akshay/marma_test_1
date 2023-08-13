@@ -1,34 +1,37 @@
 const bcrypt = require('bcrypt');
 const express = require('express');
+const jwt = require('jsonwebtoken');
 const db = require('./db');
 
 const router = express.Router();
 
 router.post('/register', async (req, res) => {
-  try {
-    const { username, email, password } = req.body;
+  // ... (existing registration code) ...
+});
 
-    // Check if the username already exists
-    const existingUser = await db.oneOrNone('SELECT * FROM users WHERE username = $1', [username]);
-    if (existingUser) {
-      return res.status(409).json({ error: 'Username already exists' });
+router.post('/login', async (req, res) => {
+  try {
+    const { username, password } = req.body;
+
+    // Find the user by username
+    const user = await db.oneOrNone('SELECT * FROM users WHERE username = $1', [username]);
+    if (!user) {
+      return res.status(401).json({ error: 'Invalid username or password' });
     }
 
-    // Hash the password
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
+    // Compare the provided password with the stored hash
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      return res.status(401).json({ error: 'Invalid username or password' });
+    }
 
-    // Save the user to the database
-    const result = await db.one(
-      'INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING id',
-      [username, email, hashedPassword]
-    );
+    // Generate a JWT for the authenticated user
+    const token = jwt.sign({ userId: user.id }, 'your_secret_key', { expiresIn: '1h' });
 
-    console.log(result); // Log the result to debug
-
-    res.status(201).json({ userId: result.id });
+    // Respond with the token and user information
+    res.status(200).json({ token, userId: user.id, username: user.username });
   } catch (error) {
-    console.error(error); // Log the full error object for debugging
+    console.error(error);
     res.status(500).json({ error: error.message });
   }
 });
