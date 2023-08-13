@@ -1,16 +1,33 @@
 /* PublicLayout.css */
-.public-layout .header {
-    background-color: #f0f0f0;
+.public-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .public-header {
+    background-color: #007bff;
+    color: #fff;
     padding: 10px;
   }
   
-  .public-layout .main-content {
+  .public-header nav {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .public-main-content {
+    flex-grow: 1;
     padding: 20px;
   }
   
-  .public-layout .footer {
-    background-color: #f0f0f0;
+  .public-footer {
+    background-color: #f8f9fa;
     padding: 10px;
     text-align: center;
+  }
+  
+  .public-footer p {
+    margin: 0;
   }
   
