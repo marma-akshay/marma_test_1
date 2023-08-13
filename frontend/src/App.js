@@ -1,16 +1,28 @@
 import React from 'react';
-import Layout from './components/Layout'; // Import the Layout component
-import './App.css'; // Keep your existing App.css for any global styles
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Layout from './components/Layout';
+import LandingPage from './components/LandingPage';
+// Import other components as needed
+// import SignInPage from './components/SignInPage';
+// import SignUpPage from './components/SignUpPage';
+// import Dashboard from './components/Dashboard';
+// import Profile from './components/Profile';
+import './App.css';
 
 function App() {
   return (
-    <Layout>
-      <div className="App">
-        <h1>Welcome to Marma</h1>
-        <p>Your interactive platform for learning data analytics!</p>
-        {/* Additional content and routes will go here */}
-      </div>
-    </Layout>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          {/* Uncomment and define these routes as you create the components */}
+          {/* <Route path="/signin" element={<SignInPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/profile" element={<Profile />} /> */}
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
 
