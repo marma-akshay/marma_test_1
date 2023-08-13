@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 function SignUp() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate(); // Use navigate for navigation
 
   const handleSignUp = async (e) => {
     e.preventDefault();
 
-    // Sending POST request to the backend
     try {
-      const response = await fetch('/auth/register', {
+      const response = await fetch('http://localhost:3001/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -23,9 +24,9 @@ function SignUp() {
 
       if (response.ok) {
         // Redirect to Sign In page on successful registration
-        window.location.href = '/signin';
+        navigate('/signin'); // Use navigate for navigation
       } else {
-        setError(data.error);
+        setError(data.error || 'An error occurred. Please try again.'); // Handle error message
       }
     } catch (err) {
       setError('An error occurred. Please try again.');

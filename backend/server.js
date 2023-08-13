@@ -1,9 +1,13 @@
 const express = require('express');
+const cors = require('cors'); // Import the CORS package
 const authRoutes = require('./authRoutes'); // Import the authentication routes
 const verifyToken = require('./authMiddleware'); // Import the authentication middleware
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// Enable CORS for all routes
+app.use(cors());
 
 // Middleware to parse JSON requests
 app.use(express.json());
