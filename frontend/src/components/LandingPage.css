@@ -2,41 +2,97 @@
     background: radial-gradient(circle at center, #000033, #000000);
     color: #ffffff;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    overflow: hidden;
   }
   
-  .tunnel {
+  .data-point {
+    position: absolute;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+    transform: rotateX(45deg) rotateY(45deg);
+  }
+  
+  @keyframes moveToPointTop {
+    0% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: translateY(calc(50vh - 50%));
+      opacity: 0;
+    }
+  }
+  
+  @keyframes moveToPointBottom {
+    0% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: translateY(calc(-50vh + 50%));
+      opacity: 0;
+    }
+  }
+  
+  @keyframes moveToPointLeft {
+    0% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: translateX(calc(50vw - 50%));
+      opacity: 0;
+    }
+  }
+  
+  @keyframes moveToPointRight {
+    0% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: translateX(calc(-50vw + 50%));
+      opacity: 0;
+    }
+  }
+  
+  .welcome-section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
+    z-index: 1;
   }
   
   .buttons {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     margin-top: 20px;
   }
   
   .button {
     padding: 10px 20px;
     border: none;
-    background-color: #007bff;
+    background-color: #00cc66;
     color: #ffffff;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-decoration: none;
   }
   
   .button:hover {
     background-color: #0056b3;
-  }
-  
-  .explore-button {
-    background-color: #00cc66; /* Quantum glow color */
-  }
-  
-  .sign-in-button, .sign-up-button {
-    background-color: #007bff; /* Regular button color */
   }
   
