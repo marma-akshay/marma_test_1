@@ -4,7 +4,7 @@ import './LandingPage.css';
 
 function LandingPage() {
   const dataPoints = [];
-  for (let i = 0; i < 200; i++) {  // generating 200 data points
+  for (let i = 0; i < 200; i++) {
     const side = Math.floor(Math.random() * 4);
     const position = Math.random() * 100 + "vw";
     const point = {
