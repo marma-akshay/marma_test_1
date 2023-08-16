@@ -20,7 +20,7 @@ function App() {
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <Router>
         <Routes>
-          <Route path="/" element={<PublicLayout><LandingPage /></PublicLayout>} />
+          <Route path="/" element={<LandingPage />} /> {/* Render LandingPage directly */}
           <Route path="/signin" element={<PublicLayout><SignIn /></PublicLayout>} />
           <Route path="/signup" element={<PublicLayout><SignUp /></PublicLayout>} />
           <Route path="/faq" element={<PublicLayout><FAQ /></PublicLayout>} />
