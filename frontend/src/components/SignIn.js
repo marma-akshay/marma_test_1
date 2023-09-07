@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './SignIn.css'; // Import the new CSS file
 
 function SignIn() {
   const [username, setUsername] = useState('');
@@ -35,14 +36,14 @@ function SignIn() {
   };
 
   return (
-    <div>
+    <div className="sign-in-container">
       <h2>Sign In</h2>
       <form onSubmit={handleSignIn}>
         <input type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)} required />
         <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
-        <button type="submit">Sign In</button>
+        <button type="submit" className="sign-in-button">Sign In</button>
       </form>
-      {error && <p>{error}</p>}
+      {error && <p className="error-message">{error}</p>}
     </div>
   );
 }
