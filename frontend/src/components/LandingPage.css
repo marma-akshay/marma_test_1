@@ -107,3 +107,39 @@
 .button:hover {
   background-color: #0056b3;
 }
+.auth-options {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 100px; /* Increased width to accommodate the content */
+  height: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 5px;
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+
+.auth-options:hover {
+  height: 80px; /* Increased height to show the content clearly upon hover */
+}
+
+.auth-options-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80px; /* Corresponding increase in height for the content container */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.auth-options:hover .auth-options-content {
+  opacity: 1;
+}
+
+.auth-options-content a {
+  margin: 10px;
+  color: #ffffff;
+  text-decoration: none;
+}

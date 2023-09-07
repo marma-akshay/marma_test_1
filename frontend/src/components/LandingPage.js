@@ -41,6 +41,12 @@ function LandingPage() {
           <span key={index} className="data-point" style={style}>{point.character}</span>
         )
       })}
+        <div className="auth-options">
+        <div className="auth-options-content">
+          <Link to="/signin">Log In</Link>
+          <Link to="/signup">Sign Up</Link>
+        </div>
+      </div>
       <div className="welcome-section">
         <h1>Welcome to Marma!</h1>
         <p>Explore, Learn, and Master Data Analytics.</p>
