@@ -1,98 +1,109 @@
 .landing-page {
-    background: radial-gradient(circle at center, #000033, #000000);
-    color: #ffffff;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
+  background: radial-gradient(circle at center, #000033, #000000);
+  color: #ffffff;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.data-point {
+  position: absolute;
+  font-size: 0.75rem;
+  color: radial rgba(255, 255, 255, 0.8);
+  text-shadow: 
+  0 0 2px  #FBFFFF,
+  0 0 2px #FBFFFF,
+  0 0 2px #FBFFFF,
+  0 0 2px #FBFFFF;
+  transform: rotateX(45deg) rotateY(45deg);
+}
+
+
+@keyframes moveToPointTop {
+  0% {
+    opacity: 0.8;
   }
-  
-  .data-point {
-    position: absolute;
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.8);
-    text-shadow: 0.5px 0.5px #fff, -0.5px -0.5px #fff, 0.5px -0.5px #fff, -0.5px 0.5px #fff;
-    transform: rotateX(45deg) rotateY(45deg);
+  80% {
+    opacity: 0.4;
   }
-  
-  @keyframes moveToPointTop {
-    0% {
-      opacity: 0.8;
-    }
-    80% {
-      opacity: 0.4;
-    }
-    100% {
-      transform: translateY(calc(35vh - 50%));
-      opacity: 0;
-    }
+  100% {
+    transform: translateY(calc(35vh - 50%));
+    opacity: 0;
   }
-  
-  @keyframes moveToPointBottom {
-    0% {
-      opacity: 0.8;
-    }
-    80% {
-      opacity: 0.4;
-    }
-    100% {
-      transform: translateY(calc(-35vh + 50%));
-      opacity: 0;
-    }
+}
+
+@keyframes moveToPointBottom {
+  0% {
+    opacity: 0.8;
   }
-  
-  @keyframes moveToPointLeft {
-    0% {
-      opacity: 0.8;
-    }
-    80% {
-      opacity: 0.4;
-    }
-    100% {
-      transform: translateX(calc(35vw - 50%));
-      opacity: 0;
-    }
+  80% {
+    opacity: 0.4;
   }
-  
-  @keyframes moveToPointRight {
-    0% {
-      opacity: 0.8;
-    }
-    80% {
-      opacity: 0.4;
-    }
-    100% {
-      transform: translateX(calc(-35vw + 50%));
-      opacity: 0;
-    }
+  100% {
+    transform: translateY(calc(-35vh + 50%));
+    opacity: 0;
   }
-  
-  .welcome-section {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 2; /* Ensure this section is always on top */
+}
+
+@keyframes moveToPointLeft {
+  0% {
+    opacity: 0.8;
   }
-  
-  .buttons {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+  80% {
+    opacity: 0.4;
   }
-  
-  .button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #00cc66;
-    color: #ffffff;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
+  100% {
+    transform: translateX(calc(35vw - 50%));
+    opacity: 0;
   }
-  
-  .button:hover {
-    background-color: #0056b3;
+}
+
+@keyframes moveToPointRight {
+  0% {
+    opacity: 0.8;
   }
-  
+  80% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateX(calc(-35vw + 50%));
+    opacity: 0;
+  }
+}
+
+.welcome-section {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2; /* Ensure this section is always on top */
+  text-shadow: 
+    0 0 1px #fff,
+    0 0 1px #fff,
+    0 0 1px #fff;
+  font-weight: bold;
+}
+
+
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #00cc66;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
