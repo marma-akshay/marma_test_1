@@ -9,15 +9,14 @@
 .data-point {
   position: absolute;
   font-size: 0.75rem;
-  color: radial rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.8);
   text-shadow: 
-  0 0 2px  #FBFFFF,
-  0 0 2px #FBFFFF,
-  0 0 2px #FBFFFF,
-  0 0 2px #FBFFFF;
+    0 0 2px #FBFFFF,
+    0 0 2px #FBFFFF,
+    0 0 2px #FBFFFF,
+    0 0 2px #FBFFFF;
   transform: rotateX(45deg) rotateY(45deg);
 }
-
 
 @keyframes moveToPointTop {
   0% {
@@ -77,15 +76,13 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  z-index: 2; /* Ensure this section is always on top */
+  z-index: 2; 
   text-shadow: 
     0 0 1px #fff,
     0 0 1px #fff,
     0 0 1px #fff;
   font-weight: bold;
 }
-
-
 
 .buttons {
   display: flex;
@@ -107,39 +104,52 @@
 .button:hover {
   background-color: #0056b3;
 }
+
+
 .auth-options {
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 100px; /* Increased width to accommodate the content */
-  height: 10px;
+  width: 100px; /* Adjust width to control the width of the horizontal line */
+  height: 20px; /* Adjust height to control the thickness of the horizontal line */
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   border-radius: 5px;
   overflow: hidden;
+  cursor: pointer;
   transition: height 0.3s ease;
 }
 
 .auth-options:hover {
-  height: 80px; /* Increased height to show the content clearly upon hover */
+  height: 170px; /* Adjust height to control the height of the container on hover */
 }
 
 .auth-options-content {
+  position: relative;
+  top: 5px; /* Adjust top to control the position of the links within the container */
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 5px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 80px; /* Corresponding increase in height for the content container */
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 .auth-options:hover .auth-options-content {
-  opacity: 1;
+  opacity: 0.4;
 }
 
 .auth-options-content a {
   margin: 10px;
   color: #ffffff;
   text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.auth-options-content a:hover {
+  color: #00cc66;
 }

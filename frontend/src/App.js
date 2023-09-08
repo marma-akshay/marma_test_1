@@ -1,5 +1,6 @@
 import React, { useState, createContext } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// eslint-disable-next-line
 import PublicLayout from './components/PublicLayout';
 import Layout from './components/Layout';
 import LandingPage from './components/LandingPage';
@@ -21,10 +22,10 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} /> {/* Render LandingPage directly */}
-          <Route path="/signin" element={<PublicLayout><SignIn /></PublicLayout>} />
-          <Route path="/signup" element={<PublicLayout><SignUp /></PublicLayout>} />
-          <Route path="/faq" element={<PublicLayout><FAQ /></PublicLayout>} />
-          <Route path="/aboutus" element={<PublicLayout><AboutUs /></PublicLayout>} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/dashboard" element={<Layout><Dashboard /></Layout>} />
           <Route path="/profile" element={<Layout><Profile /></Layout>} />
         </Routes>

@@ -39,12 +39,14 @@ function LandingPage() {
 
         return (
           <span key={index} className="data-point" style={style}>{point.character}</span>
-        )
+        );
       })}
-        <div className="auth-options">
+      <div className="auth-options">
         <div className="auth-options-content">
           <Link to="/signin">Log In</Link>
           <Link to="/signup">Sign Up</Link>
+          <Link to="/AboutUs">About</Link>
+          <Link to="/FAQ">FAQ</Link>
         </div>
       </div>
       <div className="welcome-section">
