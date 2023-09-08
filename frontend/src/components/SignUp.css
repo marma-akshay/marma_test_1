@@ -11,6 +11,21 @@
   font-weight: bold;
 }
 
+.logo-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(255, 255, 255, 0.232);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 150px;
+}
+
+.logo {
+  width: 100%;
+}
+
 .sign-up-glass {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
@@ -76,7 +91,7 @@
     opacity: 0.4;
   }
   100% {
-    transform: translateX(35vw);
+    transform: translateX(15vw);
     opacity: 0;
   }
 }
@@ -96,7 +111,7 @@
 }
 
 .auth-options-signup:hover {
-  height: 140px;
+  height: 100px;
 }
 
 .auth-options-content-signup {

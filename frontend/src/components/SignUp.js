@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './SignUp.css';
+import logo from '../assets/logo.png';
 
 function SignUp() {
   const [username, setUsername] = useState('');
@@ -10,7 +11,7 @@ function SignUp() {
   const navigate = useNavigate();
 
   const dataPoints = [];
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 100; i++) {
     const position = Math.random() * 100 + "vh";
     const point = {
       character: String.fromCharCode(33 + Math.floor(Math.random() * (126 - 33))),
@@ -45,6 +46,9 @@ function SignUp() {
 
   return (
     <div className="sign-up-container">
+      <div className="logo-container">
+        <img src={logo} alt="Logo" className="logo" />
+      </div>
       {dataPoints.map((point, index) => {
         let style = {
           top: point.position, 
