@@ -9,6 +9,9 @@
   position: relative;
   overflow: hidden;
   font-weight: bold;
+  animation: backgroundAnimation 30s infinite;
+  background: linear-gradient(270deg, #000033, #000000, #000033, #000000);
+  background-size: 200% 200%;
 }
 
 .logo-container {
@@ -51,6 +54,11 @@
   backdrop-filter: blur(10px);
 }
 
+.sign-up-form input:focus {
+  outline: none;
+  box-shadow: 0 0 5px #00cc66;
+}
+
 .sign-up-button-signup {
   padding: 10px 20px;
   border: none;
@@ -64,6 +72,10 @@
 
 .sign-up-button-signup:hover {
   background-color: #0056b3;
+}
+
+.sign-up-button-signup:active {
+  transform: scale(0.95);
 }
 
 .error-message-signup {
@@ -86,6 +98,7 @@
 @keyframes moveToPointTopSignUp {
   0% {
     opacity: 0.8;
+    
   }
   80% {
     opacity: 0.4;
@@ -93,6 +106,18 @@
   100% {
     transform: translateX(15vw);
     opacity: 0;
+  }
+}
+
+@keyframes backgroundAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
@@ -111,7 +136,7 @@
 }
 
 .auth-options-signup:hover {
-  height: 100px;
+  height: 140px;
 }
 
 .auth-options-content-signup {
@@ -143,3 +168,47 @@
 .auth-options-content-signup a:hover {
   color: #00cc66;
 }
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sign-up-glass, .sign-up-form input, .sign-up-button-signup {
+    width: 90%;
+  }
+  .logo-container, .auth-options-signup {
+    display: none;
+  }
+}
+.grid-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  opacity: 0.5;
+}
+
+.grid-square {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 30, 118);
+  box-shadow: 0 0 5px rgba(0, 32, 128, 0.574);
+  opacity: 0.5;
+}
+

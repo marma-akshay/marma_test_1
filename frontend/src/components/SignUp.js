@@ -8,6 +8,7 @@ function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const dataPoints = [];
@@ -21,8 +22,16 @@ function SignUp() {
     dataPoints.push(point);
   }
 
+  const gridSquares = [];
+  for (let i = 0; i < 10; i++) {
+    for (let j = 0; j < 10; j++) {
+      gridSquares.push({ id: i * 10 + j });
+    }
+  }
+
   const handleSignUp = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await fetch('http://localhost:3001/auth/register', {
         method: 'POST',
@@ -42,10 +51,16 @@ function SignUp() {
     } catch (err) {
       setError('An error occurred. Please try again.');
     }
+    setLoading(false);
   };
 
   return (
     <div className="sign-up-container">
+      <div className="grid-background">
+        {gridSquares.map(square => (
+          <div key={square.id} className="grid-square"></div>
+        ))}
+      </div>
       <div className="logo-container">
         <img src={logo} alt="Logo" className="logo" />
       </div>
@@ -75,7 +90,9 @@ function SignUp() {
           <input type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)} required />
           <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
           <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
-          <button type="submit" className="sign-up-button-signup">Sign Up</button>
+          <button type="submit" className="sign-up-button-signup" disabled={loading}>
+            {loading ? <span className="spinner"></span> : 'Sign Up'}
+          </button>
         </form>
         {error && <p className="error-message-signup">{error}</p>}
       </div>
