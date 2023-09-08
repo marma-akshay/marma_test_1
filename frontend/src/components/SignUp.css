@@ -1,49 +1,130 @@
 .sign-up-container {
-    background: radial-gradient(circle at center, #000033, #000000);
-    color: #ffffff;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    font-weight: bold;
+  background: radial-gradient(circle at center, #000033, #000000);
+  color: #ffffff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+}
+
+.sign-up-glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.sign-up-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sign-up-form input {
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.sign-up-button-signup {
+  padding: 10px 20px;
+  border: none;
+  background-color: #00cc66;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.sign-up-button-signup:hover {
+  background-color: #0056b3;
+}
+
+.error-message-signup {
+  color: #ff6666;
+  margin-top: 10px;
+}
+
+.data-point-signup {
+  position: absolute;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 
+    0 0 2px #FBFFFF,
+    0 0 2px #FBFFFF,
+    0 0 2px #FBFFFF,
+    0 0 2px #FBFFFF;
+  transform: rotateX(45deg) rotateY(45deg);
+}
+
+@keyframes moveToPointTopSignUp {
+  0% {
+    opacity: 0.8;
   }
-  
-  .sign-up-container h2 {
-    margin-bottom: 20px;
-    text-shadow: 
-      0 0 1px #fff,
-      0 0 1px #fff,
-      0 0 1px #fff;
+  80% {
+    opacity: 0.4;
   }
-  
-  .sign-up-container input {
-    margin: 10px 0;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    width: 200px;
+  100% {
+    transform: translateX(35vw);
+    opacity: 0;
   }
-  
-  .sign-up-container .sign-up-button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #00cc66;
-    color: #ffffff;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-  }
-  
-  .sign-up-container .sign-up-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .sign-up-container .error-message {
-    color: #ff6666;
-    margin-top: 10px;
-  }
-  
+}
+
+.auth-options-signup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 100px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: height 0.3s ease;
+}
+
+.auth-options-signup:hover {
+  height: 140px;
+}
+
+.auth-options-content-signup {
+  position: relative;
+  top: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.auth-options-signup:hover .auth-options-content-signup {
+  opacity: 0.4;
+}
+
+.auth-options-content-signup a {
+  margin: 10px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.auth-options-content-signup a:hover {
+  color: #00cc66;
+}
