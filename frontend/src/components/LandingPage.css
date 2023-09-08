@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=YourCustomFont&display=swap'); /* Replace with your custom font */
+
 .landing-page {
+  font-family: 'YourCustomFont', sans-serif; /* Apply the custom font */
   background: radial-gradient(circle at center, #000033, #000000);
   color: #ffffff;
   height: 100vh;
@@ -8,7 +11,6 @@
 
 .data-point {
   position: absolute;
-  font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.8);
   text-shadow: 
     0 0 2px #FBFFFF,
@@ -97,21 +99,22 @@
   color: #ffffff;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Updated transition property to include transform */
   text-decoration: none;
+  display: inline-block; /* Added for transform property to work correctly */
 }
 
 .button:hover {
   background-color: #0056b3;
+  transform: scale(1.1); /* Adding a subtle bounce effect on hover */
 }
-
 
 .auth-options {
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 100px; /* Adjust width to control the width of the horizontal line */
-  height: 20px; /* Adjust height to control the thickness of the horizontal line */
+  width: 100px; 
+  height: 20px; 
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   border-radius: 5px;
@@ -121,12 +124,12 @@
 }
 
 .auth-options:hover {
-  height: 170px; /* Adjust height to control the height of the container on hover */
+  height: 170px; 
 }
 
 .auth-options-content {
   position: relative;
-  top: 5px; /* Adjust top to control the position of the links within the container */
+  top: 5px; 
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   border-radius: 5px;
@@ -152,4 +155,34 @@
 
 .auth-options-content a:hover {
   color: #00cc66;
+}
+
+.landing-page::before, .landing-page::after {
+  content: '';
+  position: absolute;
+  bottom: 15%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00cc66, transparent);
+  animation: moveTrendLine 5s linear infinite;
+}
+
+.landing-page::after {
+  filter: blur(5px);
+  opacity: 0.6;
+  animation-delay: 2.5s;
+}
+
+@keyframes moveTrendLine {
+  0% {
+    left: 0;
+    width: 30%;
+  }
+  50% {
+    left: 35%;
+    width: 30%;
+  }
+  100% {
+    left: 100%;
+    width: 30%;
+  }
 }
