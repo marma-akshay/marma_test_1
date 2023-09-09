@@ -4,12 +4,31 @@ import logo from '../assets/logo.png'; // Import the logo
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 function AboutUs() {
+  const gridSquares = [];
+  for (let i = 0; i < 10; i++) {
+    for (let j = 0; j < 10; j++) {
+      gridSquares.push({ id: i * 10 + j });
+    }
+  }
+
   return (
     <div className="about-us-container">
+      <div className="grid-background">
+        {gridSquares.map(square => (
+          <div key={square.id} className="grid-square"></div>
+        ))}
+      </div>
       <div className="logo-container">
         <Link to="/">
           <img src={logo} alt="Logo" className="logo" />
         </Link>
+      </div>
+      <div className="auth-options-aboutus">
+        <div className="auth-options-content-aboutus">
+          <Link to="/signin">Log In</Link>
+          <Link to="/signup">Sign Up</Link>
+          <Link to="/FAQ">FAQ</Link>
+        </div>
       </div>
       <div className="about-us-glass">
         <h1>About Us</h1>
