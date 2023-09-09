@@ -62,7 +62,9 @@ function SignUp() {
         ))}
       </div>
       <div className="logo-container">
+      <Link to="/">
         <img src={logo} alt="Logo" className="logo" />
+        </Link>
       </div>
       {dataPoints.map((point, index) => {
         let style = {
